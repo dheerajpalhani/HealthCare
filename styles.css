@@ -1,25 +1,19 @@
 /* Design tokens (from the XD spec) */
 :root {
-  --purple: #705AAA; --border: #CBC8D4; --active-2: #D8FCF7; --teal: #01F0D0; --green: #0BD984;
-  --ink: #072635; --blue-1: #0C3D5D; --blue-2: #084C77; --blue-3: #055A92; --blue-4: #006AAC; --blue-5: #007BC7;
-  --muted: #707070; --bg: #F6F7F8; --line: #EDEDED; --black: #000; --grey: #878787; --white: #FFF; --orange: #FF6200;
+  --purple: #705AAA; --border: #CBC8D4; --active-2: #D8FCF7; --teal: #01F0D0;
+  --ink: #072635;
+  --muted: #707070; --bg: #F6F7F8; --line: #EDEDED; --white: #FFF;
   --card: var(--white); --selected: var(--active-2);
   --resp: #E0F3FA; --temp: #FFE6E9; --heart: #FFE6F1; --panel: #F4F0FE; --pink: #E66FD2;
   --font: "Manrope", system-ui, sans-serif;
 }
-/* Character styles */
-.card-title-24pt { font: 800 24px/33px var(--font); color: var(--ink); }
-.inner-card-title-18pt { font: 700 18px/24px var(--font); color: var(--ink); text-transform: capitalize; }
-.body-emphasized-14pt { font: 700 14px/19px var(--font); color: var(--ink); }
-.body-secondary-info-14pt { font: 400 14px/19px var(--font); color: var(--muted); }
-.body-regular-14 { font: 400 14px/19px var(--font); color: var(--ink); }
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--bg); color: var(--ink); font: 400 14px/19px var(--font); }
 h2 { font: 800 24px/33px var(--font); margin: 0 0 20px; }
 h3 { margin: 0; font: 700 18px/24px var(--font); text-transform: capitalize; }
 h4 { margin: 0; font-weight: 700; }
 button { font: inherit; }
-/* Fixed artboard: 1600 x 1195 (XD "HealthCare Dashboard"). Section sizes below are placeholders until exact specs are given. */
+/* Fixed artboard: 1600 x 1195 (XD "HealthCare Dashboard"). */
 body { min-width: 1600px; }
 .page { position: relative; width: 1600px; height: 1195px; margin: 0 auto; padding: 18px; overflow: hidden; background: var(--bg); }
 
@@ -29,8 +23,7 @@ body { min-width: 1600px; }
 /* Nav group: artboard x473 y23 -> header offset left 455 / top 5 */
 .mainnav { position: absolute; left: 455px; top: 5px; width: 662.59px; height: 63px;
   display: flex; align-items: center; justify-content: space-between; }
-.mainnav a { padding: 11px 20px; border-radius: 41px; color: var(--ink); text-decoration: none; font-weight: 700; font-size: 14px; }
-.mainnav a { display: inline-flex; align-items: center; gap: 8px; }
+.mainnav a { display: inline-flex; align-items: center; gap: 8px; padding: 11px 20px; border-radius: 41px; color: var(--ink); text-decoration: none; font-weight: 700; font-size: 14px; }
 .nav-ico { display: block; flex: none; }
 .mainnav a.active { background: var(--teal); }
 /* Right group: artboard x1309 y32 -> header offset left 1291 / top 14 */

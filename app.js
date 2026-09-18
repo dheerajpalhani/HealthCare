@@ -35,6 +35,15 @@ const OTHERS = [["Emily Williams","Female",18],["Ryan Johnson","Male",45],["Bran
   ["Kevin Anderson","Male",30],["Dylan Thompson","Male",36],["Nathan Evans","Male",58],["Mike Nolan","Male",31]];
 OTHERS.forEach(([name, gender, age]) => SAMPLE.push({ ...SAMPLE[0], name, gender, age }));
 
+// Local patient photos, keyed by patient name; anyone not listed falls back to the API's profile_picture.
+const PHOTOS = {
+  "Emily Williams": "images/L1.png", "Ryan Johnson": "images/L2.png", "Brandon Mitchell": "images/L3.png",
+  "Jessica Taylor": "images/L4.png", "Samantha Johnson": "images/L5.png", "Ashley Martinez": "images/L5_5.png",
+  "Olivia Brown": "images/L6.png", "Tyler Davis": "images/L7.png", "Kevin Anderson": "images/L8.png",
+  "Dylan Thompson": "images/L9.png", "Nathan Evans": "images/L10.png", "Mike Nolan": "images/L11.png",
+};
+const photoOf = (p) => PHOTOS[p.name] || p.profile_picture || "";
+
 const $ = (id) => document.getElementById(id);
 let patients = [], chart;
 
@@ -52,7 +61,7 @@ function renderList() {
   ul.innerHTML = "";
   patients.forEach((p, i) => {
     const li = document.createElement("li");
-    li.innerHTML = `<img alt="" src="${p.profile_picture || ""}"><div class="meta"><b></b><small>${p.gender}, ${p.age}</small></div><span class="dots">•••</span>`;
+    li.innerHTML = `<img alt="" src="${photoOf(p)}"><div class="meta"><b></b><small>${p.gender}, ${p.age}</small></div><span class="dots">•••</span>`;
     li.querySelector("b").textContent = p.name;
     li.onclick = () => select(i);
     ul.appendChild(li);
@@ -69,10 +78,11 @@ function select(i) {
   const p = patients[i];
   [...$("patient-list").children].forEach((li, j) => li.classList.toggle("active", i === j));
 
-  $("p-photo").src = p.profile_picture || "";
+  $("p-photo").src = photoOf(p);
   set("p-name", p.name);
   set("p-dob", p.date_of_birth);
   set("p-gender", p.gender);
+  $("p-gender-ico").src = /^m/i.test(p.gender) ? "images/R2m.png" : "images/R2f.png";
   set("p-phone", p.phone_number);
   set("p-emerg", p.emergency_contact);
   set("p-ins", p.insurance_type);

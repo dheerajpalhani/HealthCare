@@ -21,7 +21,7 @@ h4 { margin: 0; font-weight: 700; }
 button { font: inherit; }
 /* Fixed artboard: 1600 x 1195 (XD "HealthCare Dashboard"). Section sizes below are placeholders until exact specs are given. */
 body { min-width: 1600px; }
-.page { width: 1600px; height: 1195px; margin: 0 auto; padding: 18px; overflow: hidden; background: var(--bg); }
+.page { position: relative; width: 1600px; height: 1195px; margin: 0 auto; padding: 18px; overflow: hidden; background: var(--bg); }
 
 .topbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: nowrap;
   position: relative; width: 1564px; height: 72px; background: var(--white); border-radius: 70px; padding: 0 32px; margin-bottom: 32px; }
@@ -42,14 +42,12 @@ body { min-width: 1600px; }
 .sep { width: 1px; height: 44px; background: #ddd; margin: 0 4px; }
 .icon-btn { background: none; border: 0; cursor: pointer; font-size: 18px; padding: 4px; }
 
-.layout { display: grid; gap: 32px;
-  grid-template-columns: 367px 766px 367px;
-  grid-template-rows: 673px 349px;
-  grid-template-areas: "patients diag profile" "patients dlist labs"; }
+/* Cards are placed at their XD artboard coordinates (x, y, w, h). */
+.layout { display: contents; }
 .card { background: var(--card); border-radius: 16px; padding: 20px; min-height: 0; overflow: hidden; }
-.patients { grid-area: patients; padding: 20px 0; display: flex; flex-direction: column; }
-.diag { grid-area: diag; } .profile { grid-area: profile; } .dlist { grid-area: dlist; display: flex; flex-direction: column; }
-.labs-card { grid-area: labs; display: flex; flex-direction: column; }
+.patients { position: absolute; left: 18px; top: 122px; width: 367px; height: 1054px; padding: 20px 0; display: flex; flex-direction: column; }
+.diag { position: absolute; left: 417px; top: 122px; width: 766px; height: 673px; } .profile { position: absolute; left: 1216px; top: 108px; width: 367px; height: 740px; } .dlist { position: absolute; left: 417px; top: 827px; width: 766px; height: 350px; display: flex; flex-direction: column; }
+.labs-card { position: absolute; left: 1216px; top: 880px; width: 367px; height: 297px; display: flex; flex-direction: column; }
 
 .ph { display: flex; justify-content: space-between; align-items: center; padding: 0 20px; margin-bottom: 20px; }
 .ph h2 { margin: 0; }

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tech.Care – Patients</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <img class="logo" src="images/TestLogo.svg" alt="Tech.Care" width="210.582" height="48">
+      <nav class="mainnav" aria-label="Main">
+        <a href="#"><img class="nav-ico" src="images/homeN.svg" alt="" width="15.51" height="17">Overview</a>
+        <a href="#" class="active"><img class="nav-ico" src="images/groupN.svg" alt="" width="23.73" height="17">Patients</a>
+        <a href="#"><img class="nav-ico" src="images/calendarN.svg" alt="" width="15.12" height="17">Schedule</a>
+        <a href="#"><img class="nav-ico" src="images/chatN.svg" alt="" width="18.69" height="17">Message</a>
+        <a href="#"><img class="nav-ico" src="images/creditN.svg" alt="" width="21.53" height="17">Transactions</a>
+      </nav>
+      <div class="user">
+        <div class="avatar"><img class="nav-ico" src="images/seniorWN.png" alt="" width="44" height="44"></div>
+        <div class="user-info"><strong>Dr. Jose Simmons</strong><span>General Practitioner</span></div>
+        <span class="sep"></span>
+        <button class="icon-btn" aria-label="Settings"><img class="nav-ico" src="images/settingsN.svg" alt="" width="18.94" height="20"></button>
+        <button class="icon-btn" aria-label="More"><img class="nav-ico" src="images/moreN.svg" alt="" width="3.71" height="18"></button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <aside class="card patients">
+        <div class="ph"><h2>Patients</h2><button class="icon-btn" aria-label="Search">🔍</button></div>
+        <ul id="patient-list"></ul>
+      </aside>
+
+      <section class="card diag">
+        <h2>Diagnosis History</h2>
+        <div class="bp-panel">
+          <div class="chart-box">
+            <div class="chart-head"><h3>Blood Pressure</h3><span>Last 6 months ⌄</span></div>
+            <div class="canvas-wrap"><canvas id="bp-chart"></canvas></div>
+          </div>
+          <div class="bp-legend">
+            <div><span class="dot sys"></span><strong>Systolic</strong><b id="sys-val">--</b><small id="sys-lvl"></small></div>
+            <hr>
+            <div><span class="dot dia"></span><strong>Diastolic</strong><b id="dia-val">--</b><small id="dia-lvl"></small></div>
+          </div>
+        </div>
+        <div class="vitals">
+          <div class="vital resp"><span class="ico">🫁</span><h4>Respiratory Rate</h4><b id="resp-val">--</b><small id="resp-lvl"></small></div>
+          <div class="vital temp"><span class="ico">🌡️</span><h4>Temperature</h4><b id="temp-val">--</b><small id="temp-lvl"></small></div>
+          <div class="vital heart"><span class="ico">❤️</span><h4>Heart Rate</h4><b id="heart-val">--</b><small id="heart-lvl"></small></div>
+        </div>
+      </section>
+
+      <aside class="card profile">
+        <img id="p-photo" alt="Patient photo">
+        <h2 id="p-name">--</h2>
+        <ul class="info">
+          <li><i>📅</i><div><span>Date Of Birth</span><b id="p-dob"></b></div></li>
+          <li><i>⚥</i><div><span>Gender</span><b id="p-gender"></b></div></li>
+          <li><i>📞</i><div><span>Contact Info.</span><b id="p-phone"></b></div></li>
+          <li><i>📞</i><div><span>Emergency Contacts</span><b id="p-emerg"></b></div></li>
+          <li><i>🛡</i><div><span>Insurance Provider</span><b id="p-ins"></b></div></li>
+        </ul>
+        <button class="btn">Show All Information</button>
+      </aside>
+
+      <section class="card dlist">
+        <h2>Diagnostic List</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Problem/Diagnosis</th><th>Description</th><th>Status</th></tr></thead>
+            <tbody id="diag-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <aside class="card labs-card">
+        <h2>Lab Results</h2>
+        <ul id="lab-list" class="labs"></ul>
+      </aside>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -35,12 +35,12 @@ const OTHERS = [["Emily Williams","Female",18],["Ryan Johnson","Male",45],["Bran
   ["Kevin Anderson","Male",30],["Dylan Thompson","Male",36],["Nathan Evans","Male",58],["Mike Nolan","Male",31]];
 OTHERS.forEach(([name, gender, age]) => SAMPLE.push({ ...SAMPLE[0], name, gender, age }));
 
-// Local patient photos, keyed by patient name; anyone not listed falls back to the API's profile_picture.
+// Local patient photos keyed by the API's patient names; anyone not listed uses the API's profile_picture.
 const PHOTOS = {
   "Emily Williams": "images/L1.png", "Ryan Johnson": "images/L2.png", "Brandon Mitchell": "images/L3.png",
   "Jessica Taylor": "images/L4.png", "Samantha Johnson": "images/L5.png", "Ashley Martinez": "images/L5_5.png",
   "Olivia Brown": "images/L6.png", "Tyler Davis": "images/L7.png", "Kevin Anderson": "images/L8.png",
-  "Dylan Thompson": "images/L9.png", "Nathan Evans": "images/L10.png", "Mike Nolan": "images/L11.png",
+  "Dylan Thompson": "images/L9.png", "Nathan Evens": "images/L10.png", "Mike Nolan": "images/L11.png",
 };
 const photoOf = (p) => PHOTOS[p.name] || p.profile_picture || "";
 
@@ -123,13 +123,13 @@ function select(i) {
 
   $("lab-list").innerHTML = "";
   (p.lab_results || []).forEach((l) => {
-    const li = document.createElement("li"); li.innerHTML = "<span></span><span class=\"dl\" title=\"Download\">⬇</span>"; li.firstChild.textContent = l; $("lab-list").appendChild(li);
+    const li = document.createElement("li"); li.innerHTML = "<span></span><img class=\"dl\" src=\"images/RB1.png\" alt=\"Download\" width=\"20\" height=\"20\">"; li.firstChild.textContent = l; $("lab-list").appendChild(li);
   });
 }
 
 (async function init() {
   try {
-    patients = await loadPatients();
+    patients = await loadPatients(); // every patient, exactly as the API returns them
     renderList();
     const idx = patients.findIndex((p) => p.name === CONFIG.TARGET_PATIENT);
     select(idx >= 0 ? idx : 0);

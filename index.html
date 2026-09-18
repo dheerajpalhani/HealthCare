@@ -31,7 +31,7 @@
 
     <main class="layout">
       <aside class="card patients">
-        <div class="ph"><h2>Patients</h2><button class="icon-btn" aria-label="Search"><img class="nav-ico" src="images/searchL.svg" alt="" width="17.99" height="18"></button></div>
+        <div class="ph"><h2>Patients</h2><img class="nav-ico" src="images/searchL.svg" alt="" width="17.99" height="18"></div>
         <ul id="patient-list"></ul>
       </aside>
 
@@ -49,9 +49,9 @@
           </div>
         </div>
         <div class="vitals">
-          <div class="vital resp"><img class="nav-ico" src="images/respiratory.png" alt="" width="96" height="96"></span><h4>Respiratory Rate</h4><b id="resp-val">--</b><small id="resp-lvl"></small></div>
-          <div class="vital temp"><img class="nav-ico" src="images/temperature.png" alt="" width="96" height="96"></span><h4>Temperature</h4><b id="temp-val">--</b><small id="temp-lvl"></small></div>
-          <div class="vital heart"><img class="nav-ico" src="images/heart.png" alt="" width="96" height="96"></span><h4>Heart Rate</h4><b id="heart-val">--</b><small id="heart-lvl"></small></div>
+          <div class="vital resp"><img class="nav-ico" src="images/respiratory.png" alt="" width="96" height="96"><h4>Respiratory Rate</h4><b id="resp-val">--</b><small id="resp-lvl"></small></div>
+          <div class="vital temp"><img class="nav-ico" src="images/temperature.png" alt="" width="96" height="96"><h4>Temperature</h4><b id="temp-val">--</b><small id="temp-lvl"></small></div>
+          <div class="vital heart"><img class="nav-ico" src="images/heart.png" alt="" width="96" height="96"><h4>Heart Rate</h4><b id="heart-val">--</b><small id="heart-lvl"></small></div>
         </div>
       </section>
 
@@ -72,6 +72,7 @@
         <h2>Diagnostic List</h2>
         <div class="table-wrap">
           <table>
+            <colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup>
             <thead><tr><th>Problem/Diagnosis</th><th>Description</th><th>Status</th></tr></thead>
             <tbody id="diag-body"></tbody>
           </table>
